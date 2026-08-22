@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chatbot</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+    function CounterApp({counter, setCounter}){
+
+        function click(){
+             setCounter(counter + 1);
+        }
+        return(
+            <>
+               {counter === 1? <button onClick={click}>Clicked {counter} times</button> 
+               :<button onClick={click}>Clicked {counter} times</button>}
+            </>
+        )
+    }
+
+    function Reset({counter, setCounter}){
+        function reset(){
+             setCounter(0);
+        }
+        return <button onClick={reset}>Reset</button>
+    }
+    function App (){
+              const [counter,setCounter] = React.useState(0);
+        return(
+            <>
+                <CounterApp counter={counter} setCounter={setCounter}/>
+                <CounterApp counter={counter} setCounter={setCounter}/>
+                <Reset counter={counter} setCounter={setCounter}/>
+            </>
+    )
+    }
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App/>);
+  </script>
+</body>
+
+</html>

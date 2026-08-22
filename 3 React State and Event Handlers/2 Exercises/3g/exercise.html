@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chatbot</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+    function DisplayAsYouType(){
+      const [display, setDisplay] = React.useState('');
+      function text(e){
+        setDisplay(e.target.value);
+      }
+        return(
+            <>
+               <input placeholder="Type a name" onChange={text}/>
+               <p>{display}</p>
+            </>
+        )
+    }
+    function App (){
+        return(
+            <>
+              <DisplayAsYouType/>
+            </>
+    )
+    }
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App/>);
+  </script>
+</body>
+
+</html>
