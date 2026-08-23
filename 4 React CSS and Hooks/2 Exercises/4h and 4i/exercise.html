@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercises</title>
+    <style>
+        .buttons-container{
+          display: flex;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(222,222,222);;
+        }
+
+        button{
+          color: white;
+          background-color: rgb(25, 135, 84);
+          border: none;
+          padding: 12px 20px;
+          margin-right: 10px;
+          font-size: 30px;
+          scrollbar-width: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+    function Counter(){
+      const [clicks, setClicks] = React.useState(0);
+      const [autoC, setAutoC] = React.useState(false);
+      React.useEffect(()=>{autoClick()}, [autoC])
+      function click(){
+        setClicks(clicks + 1)
+      }
+      function autoClick(){
+        if (autoC === true) {
+          setInterval(()=> {setClicks(previousClicks=>previousClicks+1)},1000)
+        }
+      }
+
+      function reset(){
+        setClicks(0);
+      }
+
+      function autoCl(){
+        setAutoC(true)
+      }
+    return(
+    <>
+    <div className="buttons-container">
+      <div>
+        <button onClick={click}>Clicked {clicks} times</button>
+      </div>
+      <div>
+        <button onClick={reset}>Reset</button>
+      </div>
+      <div>
+      <button onClick={autoCl}>Auto Click</button>
+      </div>
+    </div>
+    </>)
+    }
+
+    function App(){
+        return( 
+        <>
+            <Counter/>
+        </>)
+    }
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  </body>
+</html>
