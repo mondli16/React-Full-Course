@@ -1,0 +1,9 @@
+.chat-message-container{
+  margin-top: 20px;
+  flex-grow: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.first-paragraph{
+  text-align: center;
+}

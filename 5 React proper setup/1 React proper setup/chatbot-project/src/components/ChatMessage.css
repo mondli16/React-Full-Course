@@ -1,0 +1,21 @@
+.loadingMessage{
+height: 40px;
+margin: -15px;
+}
+
+.user-container{
+  display: flex;
+  justify-content: end;
+  align-items: start;
+}
+.robot-container{
+  display: flex;
+  align-items: start;
+}
+
+.robot-image{
+    width:45px;
+}
+.user-image{
+   width:45px;
+}
