@@ -1,36 +1,7 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react';
-import { Header } from '../components/Header';
-import './HomePage.css';
-import { formatMoney } from '../utils/money';
-export function HomePage({ cart }) {
-// fetch('http://localhost:3000/api/products')
-//     .then((response)=>{
-//       response.json().then((data)=>{
-//         console.log(data)
-//       });
-//     })
+import { formatMoney } from "../../utils/money";
 
-//This is not clean
-// fetch('http://localhost:3000/api/products')
-//     .then((response)=>{
-//       return response.json();
-//     }).then((data)=>{
-//         console.log(data)
-//     });
-
-const [products, setProducts] = useState([]);
-useEffect(()=>{
-  axios.get('/api/products?expand=product').then((response)=>{
-   setProducts(response.data);
-  })
-}, []);
-  
-  return (
-    <>
-      <title>Ecommerce Project</title>
-      <Header cart={cart}/>
-      <div className="home-page">
+export function ProductGrid({products}){
+    return(
         <div className="products-grid">
           {products.map((product) => {
             return (
@@ -84,6 +55,5 @@ useEffect(()=>{
               </div>)
           })}
         </div>
-      </div>
-    </>);
-}   
+    );
+}
