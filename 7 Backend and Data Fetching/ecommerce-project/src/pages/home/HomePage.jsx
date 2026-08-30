@@ -21,9 +21,11 @@ export function HomePage({ cart }) {
 
 const [products, setProducts] = useState([]);
 useEffect(()=>{
-  axios.get('/api/products?expand=product').then((response)=>{
-   setProducts(response.data);
-  })
+  const getHomeData = async () => {
+     const response = await axios.get('/api/products?expand=product');
+     setProducts(response.data)
+    }
+  getHomeData();
 }, []);
   
   return (
