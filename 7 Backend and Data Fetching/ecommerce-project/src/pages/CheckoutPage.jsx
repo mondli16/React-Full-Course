@@ -121,7 +121,7 @@ export function CheckoutPage({ cart }) {
             </div>
 
             <div className="payment-summary-row">
-              <div>Items {paymentSummary.totalItems}:</div>
+              <div>Items ({paymentSummary.totalItems}):</div>
               <div className="payment-summary-money">{formatMoney(paymentSummary.productCostCents)}</div>
             </div>
             {paymentSummary && (
