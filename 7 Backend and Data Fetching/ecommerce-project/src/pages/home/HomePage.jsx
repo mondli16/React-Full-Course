@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import './HomePage.css';
 import { ProductGrid } from './ProductGrid';
-export function HomePage({ cart }) {
+export function HomePage({ cart, loadCart }) {
 // fetch('http://localhost:3000/api/products')
 //     .then((response)=>{
 //       response.json().then((data)=>{
@@ -33,7 +33,7 @@ useEffect(()=>{
       <title>Ecommerce Project</title>
       <Header cart={cart}/>
       <div className="home-page">
-        <ProductGrid products={products}/>
+        <ProductGrid products={products} loadCart={loadCart}/>
       </div>
     </>);
 }   
