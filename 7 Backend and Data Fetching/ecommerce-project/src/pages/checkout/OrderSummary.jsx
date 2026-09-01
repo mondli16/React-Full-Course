@@ -1,6 +1,6 @@
 import { formatMoney } from "../../utils/money";
-import dayjs from "dayjs";
-export function OrderSummary({cart, deliveryOptions}){
+import { DeliveryOptions } from "./DeliveryOptions";
+export function OrderSummary({cart, deliveryOptions, loadCart}){
     return(
         <div className="order-summary">
             {cart.map((cartItem) => {
@@ -35,8 +35,7 @@ export function OrderSummary({cart, deliveryOptions}){
                         </span>
                       </div>
                     </div>
-
-                    <deliveryOptions deliveryOptions={deliveryOptions} cartItem = {cartItem} />
+                    <DeliveryOptions deliveryOptions={deliveryOptions} cartItem = {cartItem} loadCart={loadCart}/>
                   </div>
                 </div>
               )
